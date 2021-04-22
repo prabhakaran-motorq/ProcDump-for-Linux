@@ -451,7 +451,8 @@ int WriteCoreDumpInternal(struct CoreDumpWriter *self, char* socketName)
         exit(-1);
     }
 
-    if(socketName!=NULL)
+    // forcegcore for Motorq usage
+    if(socketName!=NULL && 0)
     {
         // If we have a socket name, we're dumping a .NET Core 3+ process....
         if(GenerateCoreClrDump(socketName, coreDumpFileName)==false)
